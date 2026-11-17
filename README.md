@@ -15,7 +15,7 @@ Maintainers open funding rounds, sponsors contribute with capped matching, and c
 
 Inspired by [GitPaid](https://github.com/Kush134/Adventum_GitPaid). MergePaid is a new implementation, not a copy of its source.
 
-[Getting started](#run-locally) · [Demo walkthrough](#presentation-walkthrough) · [Features](#implemented) · [Architecture](#architecture) · [Limitations](#prototype-boundaries) · [Roadmap](#next-production-milestones)
+[Screenshots](#screenshots) · [Getting started](#run-locally) · [Demo walkthrough](#presentation-walkthrough) · [Features](#implemented) · [Architecture](#architecture) · [Limitations](#prototype-boundaries) · [Roadmap](#next-production-milestones)
 
 ## Why MergePaid?
 
@@ -36,13 +36,70 @@ MergePaid makes the process visible: sponsors fund a repository, reviewers expla
 | Transparent activity | Transaction hashes, block numbers, gas usage, and evidence hashes |
 | Demo role switching | Present sponsor, maintainer, and contributor perspectives |
 
-<details>
-<summary>See a verified reward claim</summary>
+## Screenshots
 
-<br />
-<img src="docs/reward-preview.jpg" alt="MergePaid rewards after a successful local claim, showing zero available rewards and a disabled Claimed button" width="380" />
+Captured directly from the running MergePaid app using a full desktop viewport. These show the implemented local prototype with labelled sample repositories and test ETH; they are not design mockups or a public-network deployment.
+
+### Workspace overview
+
+![MergePaid desktop workspace overview](docs/screenshots/01-overview.jpg)
+
+<details>
+<summary>Explore projects — open full desktop screenshot</summary>
+
+Repository discovery with funding status, contribution counts, and matching availability.
+
+![MergePaid desktop explore projects](docs/screenshots/02-projects.jpg)
 
 </details>
+
+<details>
+<summary>Funding round — open full desktop screenshot</summary>
+
+Contribution table, round lifecycle, funding balance, matching reserve, and reward previews.
+
+![MergePaid desktop funding round](docs/screenshots/03-funding-round.jpg)
+
+</details>
+
+<details>
+<summary>Contribution review — open full desktop screenshot</summary>
+
+Human-review scoring rubric, recipient selection, and public review explanation form.
+
+![MergePaid desktop contribution review](docs/screenshots/04-contribution-review.jpg)
+
+</details>
+
+<details>
+<summary>Sponsor matching preview — open full desktop screenshot</summary>
+
+An actual sponsor form previewing a 0.1 ETH contribution plus a 0.1 ETH match. This is the preview before confirmation.
+
+![MergePaid desktop sponsor matching preview](docs/screenshots/05-sponsor-matching.jpg)
+
+</details>
+
+<details>
+<summary>On-chain activity — open full desktop screenshot</summary>
+
+Confirmed local contract deployments and sponsorship transactions.
+
+![MergePaid desktop on-chain activity](docs/screenshots/06-activity.jpg)
+
+</details>
+
+<details>
+<summary>Transaction receipt — open full desktop screenshot</summary>
+
+A local sponsorship receipt showing its transaction hash, block number, gas usage, and contract address.
+
+![MergePaid desktop transaction receipt](docs/screenshots/07-transaction-receipt.jpg)
+
+</details>
+
+[Browse all original desktop screenshots](docs/screenshots/README.md)
+
 
 ## Run locally
 
@@ -190,7 +247,7 @@ MergePaid/
 │   ├── architecture.svg        # Technology-symbol architecture diagram
 │   ├── architecture.png        # Presentation-ready rendered diagram
 │   ├── architecture.mmd        # Editable Mermaid architecture
-│   └── reward-preview.jpg      # Verified local demo screenshot
+│   └── screenshots/           # Verified full-desktop app captures
 ├── public/favicon.svg
 ├── server/
 │   ├── chain.mjs               # Solidity compilation and local EVM
