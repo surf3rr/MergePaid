@@ -1,0 +1,30 @@
+flowchart TB
+    roles["👥 Sponsor · Maintainer · Contributor"] --> ui["⚛ React 18 + Vite 6
+Browser workspace :5187"]
+    ui <-->|"/api JSON proxy"| api["⬡ Node.js HTTP API :3017
+Validation and serialized workflows"]
+    api <-->|"Read public PRs and changed files"| gh["GitHub REST API
+Optional public-data import"]
+    api <-->|"Off-chain reviews and appeals"| memory["▤ In-memory application records
+No persistent database"]
+    api <-->|"Transactions and read results"| ethers["◆ ethers v6
+Provider and server-managed signers"]
+    solc["◭ solc 0.8.28
+Compiles FundingRound.sol at startup"] -.->|"ABI and bytecode"| ethers
+    subgraph local["⛓ In-process Ganache EVM · chain ID 1337"]
+        contract["📜 FundingRound.sol
+Escrow · capped matching · allocations · claims"]
+        accounts["👛 Deterministic demo accounts
+Local test ETH"]
+        records["▤ Chain balances, events, and receipts
+Allocation evidence hash"]
+        contract -->|"Claim transfers"| accounts
+        contract -->|"Committed state and logs"| records
+    end
+    ethers <-->|"Deploy · sponsor · review · finalize · claim"| contract
+    classDef app fill:#edf4e4,stroke:#a9c28d,color:#34442b
+    classDef external fill:#f4f0fa,stroke:#b5a3cf,color:#504361
+    classDef offchain fill:#fffcf5,stroke:#dcc799,color:#79653d
+    class ui,api,ethers,contract,accounts,records app
+    class gh,solc external
+    class memory offchain
