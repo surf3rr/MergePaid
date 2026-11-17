@@ -208,6 +208,14 @@ The contract enforces payment rules and reviewer permissions. **The application 
 
 [Open the full-size SVG](docs/architecture.svg) · [Download PNG](docs/architecture.png) · [Editable Mermaid architecture source](docs/architecture.mmd)
 
+### Application workflow
+
+![MergePaid sequence diagram showing the user interface, application server and local blockchain across five stages](docs/application-workflow.svg)
+
+**Figure 1. MergePaid funding and reward workflow.** Sponsors fund a repository round with capped matching. The application records contribution reviews and appeals, then calculates each wallet’s share of the funded pool. The Solidity contract verifies the allocation total and lets each contributor claim their reward once.
+
+[Download the report figure (high-resolution PNG)](docs/application-workflow.png) · [Open the scalable vector figure (SVG)](docs/application-workflow.svg)
+
 ### Funding and reward flow
 
 ```mermaid
