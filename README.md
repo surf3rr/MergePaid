@@ -191,58 +191,13 @@ To use live public data, create a round with `owner/repository`, then import mer
 | Tests | Node.js test runner with real local EVM transactions |
 | Storage | In-memory only |
 
-### System architecture
-
-![MergePaid architecture showing React and Vite, the Node.js API, optional GitHub import, in-memory reviews, ethers, Solidity compilation, and the local Ganache funding contracts](docs/architecture.svg)
-
-The symbols identify the technologies actually used. Solid arrows show runtime requests, data, or value transfers; the dashed arrow carries compiler output. **Ganache runs inside the Node.js process** through an in-process provider, not through a separate public RPC service.
-
-- **Browser → API:** React sends JSON requests through Vite's `/api` proxy.
-- **API ↔ GitHub:** optional read-only imports of public PRs and changed-file metadata.
-- **API ↔ memory:** contribution scores, review explanations, and appeals remain off-chain and reset on restart.
-- **API → ethers → Ganache:** server-managed demo signers submit transactions and read state and receipts.
-- **solc → ethers:** startup compilation supplies the ABI and bytecode used to deploy a funding contract for each round.
-- **Contract → accounts / records:** approved claims transfer local ETH; contract state and events record balances, matching, and allocation evidence hashes.
-
-The contract enforces payment rules and reviewer permissions. **The application enforces review completion and appeal resolution**; those checks are not independently enforced on-chain.
-
-[Open the full-size SVG](docs/architecture.svg) · [Download PNG](docs/architecture.png) · [Editable Mermaid architecture source](docs/architecture.mmd)
-
 ### Application workflow
 
-![MergePaid sequence diagram showing the user interface, application server and local blockchain across five stages](docs/application-workflow.svg)
+![Single-flow MergePaid architecture from the React dashboard through Node.js, ethers.js and the Solidity funding contract to the contributor wallet](docs/architecture.svg)
 
-**Figure 1. MergePaid funding and reward workflow.** Sponsors fund a repository round with capped matching. The application records contribution reviews and appeals, then calculates each wallet’s share of the funded pool. The Solidity contract verifies the allocation total and lets each contributor claim their reward once.
+**Figure 1. MergePaid application architecture.** The dashboard sends user actions to the Node.js server, which manages contribution reviews and prepares reward allocations. Through ethers.js, the server submits transactions to each round’s Solidity contract on the local Ganache chain. A successful claim transfers local ETH to the contributor’s demo wallet.
 
-[Download the report figure (high-resolution PNG)](docs/application-workflow.png) · [Open the scalable vector figure (SVG)](docs/application-workflow.svg)
-
-### Funding and reward flow
-
-```mermaid
-flowchart TD
-    A([Maintainer opens a round]) --> B[Deploy contract and pre-fund matching reserve]
-    B --> C[Sponsor deposits local ETH]
-    C --> D[Contract applies 1:1 match up to remaining reserve]
-    D --> E[Load sample PRs or import public GitHub PRs]
-    E --> F[Maintainer closes funding and opens review on-chain]
-    F --> G[Reviewer assigns scores and recipient demo wallets]
-    G --> H{"All contributions reviewed<br/>and no open appeals?"}
-    H -->|No| I[Review evidence, adjust scores, and resolve appeals]
-    I --> G
-    H -->|Yes: API gate| J[Calculate proportional allocations in integer wei]
-    J --> K[Hash canonical review and allocation evidence]
-    K --> L[Reviewer finalizes allocations and evidence hash on-chain]
-    L --> M[Contributor requests claim through the local API]
-    M --> N{Unclaimed allocation exists?}
-    N -->|Yes| O[Contract clears claim balance and transfers local ETH]
-    N -->|No| P[Reject empty or duplicate claim]
-    O --> Q([Receipt displayed in the workspace])
-    classDef chain fill:#eaf3df,stroke:#8da96b,color:#34442b
-    classDef gate fill:#fff5df,stroke:#c5a466,color:#79653d
-    class B,D,F,L,N,O,P chain
-    class H gate
-```
-
+[Report image (PNG)](docs/architecture.png) · [Vector image (SVG)](docs/architecture.svg) · [Editable Mermaid flowchart](docs/architecture.mmd)
 
 The API serializes writes so two review/finalization operations cannot race. Native token amounts use integer wei; frontend decimal amounts are display-only. The contract is compiled on startup using Solidity 0.8.28 with the Shanghai EVM target. Ganache emits an optional native-module fallback warning on some Node versions; its JavaScript fallback is supported.
 

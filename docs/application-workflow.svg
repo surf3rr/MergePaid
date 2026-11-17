@@ -1,63 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1060" viewBox="0 0 1100 1060" role="img" aria-labelledby="title desc"><title id="title">MergePaid application workflow</title><desc id="desc">A sequence diagram following one funding round from deployment to contributor payment.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#31524c"/></marker></defs><rect width="1100" height="1060" fill="white"/>
-<text x="40" y="52" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#193832" text-anchor="start">MergePaid application workflow</text>
-<text x="40" y="86" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#193832" text-anchor="start">One funding round, from repository selection to a contributor’s local ETH payment.</text>
-<rect x="92" y="115" width="288" height="71" rx="9" fill="#eaf2ee"/>
-<text x="236" y="145" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#193832" text-anchor="middle">User interface</text>
-<text x="236" y="171" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#193832" text-anchor="middle">React · Vite</text>
-<line x1="236" y1="186" x2="236" y2="975" stroke="#9cb0a8" stroke-width="1.5" stroke-dasharray="5 6"/>
-<rect x="452" y="115" width="288" height="71" rx="9" fill="#eaf2ee"/>
-<text x="596" y="145" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#193832" text-anchor="middle">Application server</text>
-<text x="596" y="171" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#193832" text-anchor="middle">Node.js · in-memory reviews</text>
-<line x1="596" y1="186" x2="596" y2="975" stroke="#9cb0a8" stroke-width="1.5" stroke-dasharray="5 6"/>
-<rect x="794" y="115" width="288" height="71" rx="9" fill="#eaf2ee"/>
-<text x="938" y="145" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#193832" text-anchor="middle">Local blockchain</text>
-<text x="938" y="171" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#193832" text-anchor="middle">Ganache · FundingRound.sol</text>
-<line x1="938" y1="186" x2="938" y2="975" stroke="#9cb0a8" stroke-width="1.5" stroke-dasharray="5 6"/>
-<rect x="17" y="203" width="167" height="29" rx="5" fill="#194d42"/>
-<text x="29" y="223" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="start">1   Open round</text>
-<text x="416.0" y="239" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Maintainer selects repository</text>
-<line x1="236" y1="248" x2="596" y2="248" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="767.0" y="278" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Deploy round with matching reserve</text>
-<line x1="596" y1="287" x2="938" y2="287" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="17" y="313" width="167" height="29" rx="5" fill="#194d42"/>
-<text x="29" y="333" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="start">2   Fund &amp; import</text>
-<text x="416.0" y="344" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Sponsor deposits local ETH</text>
-<line x1="236" y1="353" x2="596" y2="353" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="767.0" y="385" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Submit deposit via ethers signer</text>
-<line x1="596" y1="394" x2="938" y2="394" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="675" y="403" width="408" height="31" rx="5" fill="#fff3d6"/>
-<text x="879.0" y="424" font-family="Arial, sans-serif" font-size="16" font-weight="500" fill="#193832" text-anchor="middle">Contract matches up to the remaining reserve.</text>
-<rect x="286" y="440" width="620" height="31" rx="5" fill="#fff3d6"/>
-<text x="596.0" y="461" font-family="Arial, sans-serif" font-size="16" font-weight="500" fill="#193832" text-anchor="middle">API loads sample PRs or imports merged PRs from the public GitHub API.</text>
-<rect x="17" y="487" width="167" height="29" rx="5" fill="#194d42"/>
-<text x="29" y="507" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="start">3   Review</text>
-<text x="416.0" y="522" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Maintainer opens review</text>
-<line x1="236" y1="531" x2="596" y2="531" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="767.0" y="560" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Close funding and enter review</text>
-<line x1="596" y1="569" x2="938" y2="569" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="416.0" y="604" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Score PRs and assign demo wallets</text>
-<line x1="236" y1="613" x2="596" y2="613" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="270" y="627" width="660" height="31" rx="5" fill="#fff3d6"/>
-<text x="600.0" y="648" font-family="Arial, sans-serif" font-size="16" font-weight="500" fill="#193832" text-anchor="middle">Contributors may appeal. The maintainer records a decision and any score change.</text>
-<rect x="17" y="683" width="167" height="29" rx="5" fill="#194d42"/>
-<text x="29" y="703" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="start">4   Finalize</text>
-<rect x="253" y="681" width="802" height="31" rx="5" fill="#fff3d6"/>
-<text x="654.0" y="702" font-family="Arial, sans-serif" font-size="16" font-weight="500" fill="#193832" text-anchor="middle">API requires reviewed and assigned PRs, no open appeals and a positive total score.</text>
-<rect x="254" y="720" width="802" height="31" rx="5" fill="#fff3d6"/>
-<text x="655.0" y="741" font-family="Arial, sans-serif" font-size="16" font-weight="500" fill="#193832" text-anchor="middle">API splits the funded pool by score in integer wei and hashes the review evidence.</text>
-<text x="767.0" y="781" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Submit allocations and evidence hash</text>
-<line x1="596" y1="790" x2="938" y2="790" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<rect x="611" y="806" width="472" height="31" rx="5" fill="#fff3d6"/>
-<text x="847.0" y="827" font-family="Arial, sans-serif" font-size="16" font-weight="500" fill="#193832" text-anchor="middle">Contract checks the reviewer and exact pool total.</text>
-<rect x="17" y="859" width="167" height="29" rx="5" fill="#194d42"/>
-<text x="29" y="879" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="start">5   Claim</text>
-<text x="416.0" y="886" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Contributor requests reward</text>
-<line x1="236" y1="895" x2="596" y2="895" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="767.0" y="924" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Call claim() as contributor</text>
-<line x1="596" y1="933" x2="938" y2="933" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="767.0" y="967" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Confirm transfer to contributor wallet</text>
-<line x1="938" y1="976" x2="596" y2="976" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="416.0" y="1003" font-family="Arial, sans-serif" font-size="17" font-weight="500" fill="#193832" text-anchor="middle">Return transaction receipt</text>
-<line x1="596" y1="1012" x2="236" y2="1012" stroke="#31524c" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="40" y="1045" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#193832" text-anchor="start">Read from top to bottom. The server manages demo signers. Review records and the local chain reset on restart.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="1020" viewBox="0 0 920 1020" role="img" aria-labelledby="title desc"><title id="title">MergePaid application architecture</title><desc id="desc">A single vertical chain from the React dashboard through Node.js, ethers.js and the local funding contract to the contributor wallet.</desc><rect width="920" height="1020" fill="white"/>
+<text x="40" y="64" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#193b34">MergePaid application architecture</text>
+<rect x="40" y="98" width="840" height="134" rx="12" fill="#f2f7f4" stroke="#709487" stroke-width="2"/><g transform="translate(65 120)" fill="none" stroke="#216451" stroke-width="2.5" stroke-linejoin="round"><rect x="1" y="4" width="35" height="26" rx="3"/><path d="M1 12h35M7 8h2m3 0h2"/></g>
+<text x="124" y="142" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#193b34">React dashboard</text>
+<text x="124" y="178" font-family="Arial, sans-serif" font-size="19" font-weight="400" fill="#193b34">Maintainers, sponsors and contributors use the Vite-served interface</text>
+<text x="124" y="205" font-family="Arial, sans-serif" font-size="19" font-weight="400" fill="#193b34">to open rounds, sponsor projects, review pull requests and claim rewards.</text>
+<path d="M460 233v42" stroke="#216451" stroke-width="3"/><path d="M453 273h14l-7 9z" fill="#216451"/>
+<text x="478" y="261" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#34584d">JSON requests through /api</text>
+<rect x="40" y="283" width="840" height="134" rx="12" fill="#f2f7f4" stroke="#709487" stroke-width="2"/><g transform="translate(65 305)" fill="none" stroke="#216451" stroke-width="2.5" stroke-linejoin="round"><path d="M18 1l15 9v18l-15 9-15-9V10z"/><path d="M12 26V12l12 14V12"/></g>
+<text x="124" y="327" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#193b34">Node.js application server</text>
+<text x="124" y="363" font-family="Arial, sans-serif" font-size="19" font-weight="400" fill="#193b34">Loads sample or public GitHub pull requests. Keeps reviews and appeals</text>
+<text x="124" y="390" font-family="Arial, sans-serif" font-size="19" font-weight="400" fill="#193b34">in memory. Once review is complete, calculates shares and hashes the evidence.</text>
+<path d="M460 418v42" stroke="#216451" stroke-width="3"/><path d="M453 458h14l-7 9z" fill="#216451"/>
+<text x="478" y="446" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#34584d">Contract calls and allocation data</text>
+<rect x="40" y="468" width="840" height="134" rx="12" fill="#f2f7f4" stroke="#709487" stroke-width="2"/><g transform="translate(65 490)" fill="none" stroke="#216451" stroke-width="2.5" stroke-linejoin="round"><path d="M1 12h30m-7-7 7 7-7 7M35 26H5m7-7-7 7 7 7"/></g>
+<text x="124" y="512" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#193b34">ethers.js transaction layer</text>
+<text x="124" y="548" font-family="Arial, sans-serif" font-size="19" font-weight="400" fill="#193b34">Uses server-managed demo signers to submit each role’s transactions.</text>
+<text x="124" y="575" font-family="Arial, sans-serif" font-size="19" font-weight="400" fill="#193b34">Uses the ABI and bytecode compiled by solc to deploy each round.</text>
+<path d="M460 603v42" stroke="#216451" stroke-width="3"/><path d="M453 643h14l-7 9z" fill="#216451"/>
+<text x="478" y="631" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#34584d">Signed transactions via the in-process provider</text>
+<rect x="40" y="653" width="840" height="134" rx="12" fill="#f2f7f4" stroke="#709487" stroke-width="2"/><g transform="translate(65 675)" fill="none" stroke="#216451" stroke-width="2.5" stroke-linejoin="round"><path d="M18 1l15 8v18l-15 9-15-9V9zM3 9l15 9 15-9M18 18v18"/></g>
+<text x="124" y="697" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#193b34">FundingRound on Ganache</text>
+<text x="124" y="733" font-family="Arial, sans-serif" font-size="19" font-weight="400" fill="#193b34">One Solidity contract per round holds local ETH, caps sponsor matching</text>
+<text x="124" y="760" font-family="Arial, sans-serif" font-size="19" font-weight="400" fill="#193b34">and checks that final allocations add up to the funded pool.</text>
+<path d="M460 788v42" stroke="#216451" stroke-width="3"/><path d="M453 828h14l-7 9z" fill="#216451"/>
+<text x="478" y="816" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#34584d">Successful claim transfers local ETH</text>
+<rect x="40" y="838" width="840" height="134" rx="12" fill="#f2f7f4" stroke="#709487" stroke-width="2"/><g transform="translate(65 860)" fill="none" stroke="#216451" stroke-width="2.5" stroke-linejoin="round"><rect x="1" y="7" width="34" height="25" rx="4"/><path d="M2 9l24-7v5m8 9H23v9h11"/><circle cx="27" cy="20" r="1"/></g>
+<text x="124" y="882" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#193b34">Contributor wallet and receipt</text>
+<text x="124" y="918" font-family="Arial, sans-serif" font-size="19" font-weight="400" fill="#193b34">The contributor’s demo wallet receives the payment. The contract clears</text>
+<text x="124" y="945" font-family="Arial, sans-serif" font-size="19" font-weight="400" fill="#193b34">the claim balance, and the dashboard shows the transaction receipt.</text>
 </svg>
